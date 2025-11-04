@@ -1,6 +1,6 @@
 services:
   postgres:
-    container_name: ms_pg_sql
+    container_name: ps_pg_sql
     image: postgres
     environment:
       POSTGRES_USER: ahmad
@@ -16,7 +16,7 @@ services:
 
 
   pgadmin:
-    container_name: ms_pg_admin
+    container_name: ps_pg_admin
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin@pgadmin.org}
@@ -31,7 +31,7 @@ services:
     restart: unless-stopped
 
   mongodb:
-    container_name: ms_mongo_db
+    container_name: ps_mongo_db
     image: mongo
     ports:
       - 27017:27017
@@ -42,7 +42,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=ahmad
 
   mongo-express:
-    container_name: ms_mongo_express
+    container_name: ps_mongo_express
     image: mongo-express
     restart: unless-stopped
     ports:
@@ -55,7 +55,7 @@ services:
       - ME_CONFIG_BASICAUTH_PASSWORD=ahmad
 
   mail-dev:
-    container_name: ms_mail_dev
+    container_name: ps_mail_dev
     image: maildev/maildev
     ports:
       - 1080:1080
